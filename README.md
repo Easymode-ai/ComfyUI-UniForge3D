@@ -1,6 +1,8 @@
 # Easymode's Ultra UniForge3D edition for COMFYUI, see workflow
 
-Shout-outs to my boys PhantyForge, Ville, VisualBruno, Kvick, Agee and the rest of you too many to name!
+Shout-outs to my boys PhantyForge, Ville, VisualBruno, MostAadTech Kvick, Agee and the rest of you too many to name!
+
+Used in this workflow: [![WTiVo-WatertightVoxel-ComfyuiNode](https://github.com/Mstafa-awad/WTiVo-WatertightVoxel-ComfyuiNode)
 
 -- Original Readme below --
 
