@@ -4,6 +4,9 @@ Shout-outs to my boys PhantyForge, Ville, VisualBruno, MostAadTech Kvick, Agee a
 
 Used in this workflow: [WTiVo-WatertightVoxel-ComfyuiNode](https://github.com/Mstafa-awad/WTiVo-WatertightVoxel-ComfyuiNode)
 
+![Project Screenshot](images/image.png)
+
+
 -- Original Readme below --
 
 # UniForge3D: Joint 3D Reconstruction and Generation in a Shared Anchor-Guided Space
