@@ -1,22 +1,22 @@
 {
   "id": "c8f0d490-e609-45a0-a188-fb471dcc144a",
   "revision": 0,
-  "last_node_id": 275,
-  "last_link_id": 633,
+  "last_node_id": 287,
+  "last_link_id": 661,
   "nodes": [
     {
       "id": 89,
       "type": "UniForge3DPreprocessImages",
       "pos": [
-        -1074.8119638386172,
-        159.94906202843094
+        -1014.5526991706779,
+        221.35931890124613
       ],
       "size": [
         241.7310546875,
         46
       ],
       "flags": {},
-      "order": 14,
+      "order": 17,
       "mode": 0,
       "inputs": [
         {
@@ -114,7 +114,7 @@
         46
       ],
       "flags": {},
-      "order": 15,
+      "order": 18,
       "mode": 0,
       "inputs": [
         {
@@ -148,15 +148,15 @@
       "id": 98,
       "type": "UniForge3DEncodeDino1024",
       "pos": [
-        396.7933855362892,
-        251.81454031336432
+        334.55145270031494,
+        227.8753353764513
       ],
       "size": [
         230.0142578125,
         46
       ],
       "flags": {},
-      "order": 16,
+      "order": 19,
       "mode": 0,
       "inputs": [
         {
@@ -190,28 +190,30 @@
       "id": 102,
       "type": "WTiVoNativeMeshToMesh",
       "pos": [
-        711.9485278393278,
-        -1389.6512085730265
+        751.5174616193493,
+        -1578.502937977675
       ],
       "size": [
         303.3828125,
         250
       ],
       "flags": {},
-      "order": 22,
+      "order": 26,
       "mode": 4,
       "inputs": [
         {
           "name": "mesh",
           "type": "MESH",
-          "link": 620
+          "link": 640
         }
       ],
       "outputs": [
         {
           "name": "mesh",
           "type": "MESH",
-          "links": []
+          "links": [
+            641
+          ]
         }
       ],
       "properties": {
@@ -220,8 +222,8 @@
         "Node name for S&R": "WTiVoNativeMeshToMesh"
       },
       "widgets_values": [
-        1536,
-        1536,
+        512,
+        512,
         12000000,
         1,
         1.5,
@@ -231,8 +233,8 @@
         "keep_all"
       ],
       "widgets_values_named": {
-        "input_res": 1536,
-        "final_res": 1536,
+        "input_res": 512,
+        "final_res": 512,
         "proxy_points": 12000000,
         "proxy_eps_scale": 1,
         "proxy_feature_weight": 1.5,
@@ -254,13 +256,13 @@
         250
       ],
       "flags": {},
-      "order": 36,
+      "order": 40,
       "mode": 0,
       "inputs": [
         {
           "name": "mesh",
           "type": "MESH",
-          "link": 555
+          "link": 649
         }
       ],
       "outputs": [
@@ -304,15 +306,15 @@
       "id": 129,
       "type": "UniForge3DSparseStructure",
       "pos": [
-        -1167.5795278131402,
-        -431.4528368346413
+        -1219.6047976215837,
+        -471.58661640115497
       ],
       "size": [
         351.798828125,
         362
       ],
       "flags": {},
-      "order": 17,
+      "order": 20,
       "mode": 0,
       "inputs": [
         {
@@ -356,7 +358,7 @@
       "widgets_values": [
         true,
         1,
-        40,
+        50,
         7.5,
         0.6,
         1,
@@ -367,7 +369,7 @@
       "widgets_values_named": {
         "denoise_sparse": true,
         "denoise_iterations": 1,
-        "structure_steps": 40,
+        "structure_steps": 50,
         "structure_guidance_strength": 7.5,
         "structure_guidance_interval_start": 0.6,
         "structure_guidance_interval_end": 1,
@@ -388,7 +390,7 @@
         58
       ],
       "flags": {},
-      "order": 37,
+      "order": 42,
       "mode": 0,
       "inputs": [
         {
@@ -422,15 +424,15 @@
       "id": 137,
       "type": "CuMeshExportMesh",
       "pos": [
-        2150,
-        -320
+        2240,
+        -300
       ],
       "size": [
         270,
         106
       ],
       "flags": {},
-      "order": 38,
+      "order": 43,
       "mode": 0,
       "inputs": [
         {
@@ -452,12 +454,12 @@
         "Node name for S&R": "CuMeshExportMesh"
       },
       "widgets_values": [
-        "3D/Hy3D",
+        "3D/Uniforge3d",
         "glb",
         true
       ],
       "widgets_values_named": {
-        "filename_prefix": "3D/Hy3D",
+        "filename_prefix": "3D/Uniforge3d",
         "file_format": "glb",
         "save_file": true
       }
@@ -466,15 +468,15 @@
       "id": 152,
       "type": "ImageUpscaleWithModel",
       "pos": [
-        -3430,
-        -920
+        -3176.24442766872,
+        -599.214653845364
       ],
       "size": [
-        291.4952905744012,
-        88.7597437354296
+        293.28311751241966,
+        54.00005969460322
       ],
       "flags": {},
-      "order": 6,
+      "order": 8,
       "mode": 4,
       "inputs": [
         {
@@ -507,8 +509,8 @@
       "id": 153,
       "type": "UpscaleModelLoader",
       "pos": [
-        -3519.480672288814,
-        -1246.5700754534932
+        -4310.780210021687,
+        -639.6024157348506
       ],
       "size": [
         456.88033105396687,
@@ -516,7 +518,7 @@
       ],
       "flags": {},
       "order": 1,
-      "mode": 0,
+      "mode": 4,
       "inputs": [],
       "outputs": [
         {
@@ -561,7 +563,9 @@
           "name": "IMAGE",
           "type": "IMAGE",
           "links": [
-            538
+            538,
+            645,
+            654
           ]
         },
         {
@@ -569,7 +573,7 @@
           "type": "MASK",
           "links": [
             632,
-            633
+            646
           ]
         }
       ],
@@ -579,11 +583,11 @@
         "Node name for S&R": "LoadImage"
       },
       "widgets_values": [
-        "a9058866d720f190121dd149e38343fa.jpg",
+        "PO9240AOS.png",
         "image"
       ],
       "widgets_values_named": {
-        "image": "a9058866d720f190121dd149e38343fa.jpg",
+        "image": "PO9240AOS.png",
         "upload": "image"
       }
     },
@@ -591,16 +595,16 @@
       "id": 158,
       "type": "ImageUpscaleWithModel",
       "pos": [
-        -3433.365276955133,
-        -1544.3234323026434
+        -3174.8218636364713,
+        -1075.115015539146
       ],
       "size": [
         233.5689453125,
         46
       ],
       "flags": {},
-      "order": 5,
-      "mode": 0,
+      "order": 6,
+      "mode": 4,
       "inputs": [
         {
           "name": "upscale_model",
@@ -617,9 +621,7 @@
         {
           "name": "IMAGE",
           "type": "IMAGE",
-          "links": [
-            349
-          ]
+          "links": []
         }
       ],
       "properties": {
@@ -637,28 +639,28 @@
       ],
       "size": [
         140,
-        106
+        86
       ],
       "flags": {},
-      "order": 13,
+      "order": 16,
       "mode": 0,
       "inputs": [
         {
           "name": "images.image0",
           "type": "IMAGE",
-          "link": 530
+          "link": 657
         },
         {
           "name": "images.image1",
           "shape": 7,
           "type": "IMAGE",
-          "link": 415
+          "link": 659
         },
         {
           "name": "images.image2",
           "shape": 7,
           "type": "IMAGE",
-          "link": 616
+          "link": 661
         },
         {
           "name": "images.image3",
@@ -683,52 +685,18 @@
       }
     },
     {
-      "id": 163,
-      "type": "PreviewImage",
-      "pos": [
-        -2513.4135346273424,
-        1067.8969225118599
-      ],
-      "size": [
-        1589.6252694064963,
-        1220.663031759674
-      ],
-      "flags": {},
-      "order": 12,
-      "mode": 4,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 346
-        }
-      ],
-      "outputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "links": []
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.41.0",
-        "Node name for S&R": "PreviewImage"
-      }
-    },
-    {
       "id": 164,
       "type": "ImageResizeKJv2",
       "pos": [
-        -2570,
-        -700
+        -2739.4537359475007,
+        -685.1356371975876
       ],
       "size": [
         270,
         286
       ],
       "flags": {},
-      "order": 9,
+      "order": 11,
       "mode": 4,
       "inputs": [
         {
@@ -748,8 +716,7 @@
           "name": "IMAGE",
           "type": "IMAGE",
           "links": [
-            346,
-            415
+            658
           ]
         },
         {
@@ -798,27 +765,27 @@
       "id": 165,
       "type": "ImageResizeKJv2",
       "pos": [
-        -2570,
-        -1540
+        -2742.0606415635693,
+        -1189.5061005186549
       ],
       "size": [
         270,
         286
       ],
       "flags": {},
-      "order": 8,
+      "order": 7,
       "mode": 0,
       "inputs": [
         {
           "name": "image",
           "type": "IMAGE",
-          "link": 349
+          "link": 654
         },
         {
           "name": "mask",
           "shape": 7,
           "type": "MASK",
-          "link": 633
+          "link": null
         }
       ],
       "outputs": [
@@ -826,8 +793,7 @@
           "name": "IMAGE",
           "type": "IMAGE",
           "links": [
-            530,
-            576
+            653
           ]
         },
         {
@@ -853,8 +819,8 @@
       },
       "widgets_values": [
         1024,
-        1080,
-        "nearest-exact",
+        1024,
+        "lanczos",
         "pad",
         "0, 0, 0",
         "center",
@@ -863,8 +829,8 @@
       ],
       "widgets_values_named": {
         "width": 1024,
-        "height": 1080,
-        "upscale_method": "nearest-exact",
+        "height": 1024,
+        "upscale_method": "lanczos",
         "keep_proportion": "pad",
         "pad_color": "0, 0, 0",
         "crop_position": "center",
@@ -884,7 +850,7 @@
         78
       ],
       "flags": {},
-      "order": 32,
+      "order": 38,
       "mode": 0,
       "inputs": [
         {
@@ -903,7 +869,7 @@
           "name": "mesh",
           "type": "MESH",
           "links": [
-            566
+            649
           ]
         }
       ],
@@ -931,7 +897,7 @@
         174
       ],
       "flags": {},
-      "order": 28,
+      "order": 31,
       "mode": 0,
       "inputs": [
         {
@@ -976,15 +942,15 @@
       "id": 215,
       "type": "UniForge3DSparsePostProcess",
       "pos": [
-        -698.372353628952,
-        -224.0572946389728
+        -750.397623437395,
+        -264.1910742054863
       ],
       "size": [
         307.5416015625,
         178
       ],
       "flags": {},
-      "order": 19,
+      "order": 22,
       "mode": 0,
       "inputs": [
         {
@@ -1036,7 +1002,7 @@
         178
       ],
       "flags": {},
-      "order": 30,
+      "order": 34,
       "mode": 4,
       "inputs": [
         {
@@ -1080,15 +1046,15 @@
       "id": 217,
       "type": "UniForge3DSparsePostProcess",
       "pos": [
-        -697.5795278131412,
-        -521.4528368346413
+        -749.6047976215842,
+        -561.5866164011549
       ],
       "size": [
         307.5416015625,
         178
       ],
       "flags": {},
-      "order": 18,
+      "order": 21,
       "mode": 0,
       "inputs": [
         {
@@ -1132,15 +1098,15 @@
       "id": 218,
       "type": "UniForge3DSparsePostProcess",
       "pos": [
-        194.75610374570633,
-        -304.8031815684682
+        142.73083393726293,
+        -344.93696113498174
       ],
       "size": [
         307.5416015625,
         178
       ],
       "flags": {},
-      "order": 23,
+      "order": 25,
       "mode": 4,
       "inputs": [
         {
@@ -1190,7 +1156,7 @@
         130
       ],
       "flags": {},
-      "order": 27,
+      "order": 30,
       "mode": 0,
       "inputs": [
         {
@@ -1205,7 +1171,8 @@
           "type": "MESH",
           "links": [
             481,
-            624
+            624,
+            647
           ]
         }
       ],
@@ -1239,13 +1206,13 @@
         58
       ],
       "flags": {},
-      "order": 24,
+      "order": 27,
       "mode": 0,
       "inputs": [
         {
           "name": "mesh",
           "type": "MESH",
-          "link": 628
+          "link": 641
         }
       ],
       "outputs": [
@@ -1281,7 +1248,7 @@
         58
       ],
       "flags": {},
-      "order": 25,
+      "order": 28,
       "mode": 4,
       "inputs": [
         {
@@ -1323,7 +1290,7 @@
         26
       ],
       "flags": {},
-      "order": 26,
+      "order": 29,
       "mode": 0,
       "inputs": [
         {
@@ -1359,7 +1326,7 @@
         154
       ],
       "flags": {},
-      "order": 21,
+      "order": 24,
       "mode": 0,
       "inputs": [
         {
@@ -1373,7 +1340,7 @@
           "name": "mesh",
           "type": "MESH",
           "links": [
-            628
+            640
           ]
         }
       ],
@@ -1398,56 +1365,6 @@
       }
     },
     {
-      "id": 245,
-      "type": "MeshReconstructWithQuad",
-      "pos": [
-        1700,
-        -590
-      ],
-      "size": [
-        435.476171875,
-        154
-      ],
-      "flags": {},
-      "order": 34,
-      "mode": 4,
-      "inputs": [
-        {
-          "name": "mesh",
-          "type": "MESH",
-          "link": 566
-        }
-      ],
-      "outputs": [
-        {
-          "name": "mesh",
-          "type": "MESH",
-          "links": [
-            555
-          ]
-        }
-      ],
-      "properties": {
-        "aux_id": "Mstafa-awad/ComfyUI-Mesh-Quad-Reconstruct",
-        "ver": "74048b3415537e26cc72b46b082a010cd0e357ce",
-        "Node name for S&R": "MeshReconstructWithQuad"
-      },
-      "widgets_values": [
-        1,
-        2048,
-        true,
-        false,
-        2000000
-      ],
-      "widgets_values_named": {
-        "remesh_band": 1,
-        "resolution": 2048,
-        "remove_floaters": true,
-        "remove_inner_faces": false,
-        "chunk_size_faces": 2000000
-      }
-    },
-    {
       "id": 250,
       "type": "CuMeshExportMesh",
       "pos": [
@@ -1459,7 +1376,7 @@
         106
       ],
       "flags": {},
-      "order": 35,
+      "order": 41,
       "mode": 4,
       "inputs": [
         {
@@ -1503,7 +1420,7 @@
         210
       ],
       "flags": {},
-      "order": 33,
+      "order": 39,
       "mode": 4,
       "inputs": [
         {
@@ -1560,52 +1477,18 @@
       }
     },
     {
-      "id": 254,
-      "type": "PreviewImage",
-      "pos": [
-        -1474.5327137420604,
-        -3738.174711052507
-      ],
-      "size": [
-        2255.3113334236805,
-        1795.0583584736542
-      ],
-      "flags": {},
-      "order": 11,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 576
-        }
-      ],
-      "outputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "links": null
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.41.0",
-        "Node name for S&R": "PreviewImage"
-      }
-    },
-    {
       "id": 257,
       "type": "UniForge3DShape512Mesh",
       "pos": [
-        -267.579527813141,
-        -460.0147101101235
+        -319.6047976215844,
+        -500.14848967663715
       ],
       "size": [
         354.564453125,
         330
       ],
       "flags": {},
-      "order": 20,
+      "order": 23,
       "mode": 0,
       "inputs": [
         {
@@ -1639,8 +1522,7 @@
           "name": "mesh512",
           "type": "MESH",
           "links": [
-            591,
-            620
+            591
           ]
         },
         {
@@ -1659,7 +1541,7 @@
       "widgets_values": [
         64,
         512,
-        30,
+        50,
         7.5,
         0,
         6,
@@ -1670,7 +1552,7 @@
       "widgets_values_named": {
         "sparse_structure_resolution": 64,
         "decode_resolution": 512,
-        "shape512_steps": 30,
+        "shape512_steps": 50,
         "shape512_guidance_strength": 7.5,
         "shape512_guidance_rescale": 0,
         "shape512_rescale_t": 6,
@@ -1683,15 +1565,15 @@
       "id": 260,
       "type": "SaveGLB",
       "pos": [
-        2159.7160791418346,
-        -2645.214194305615
+        3026.1022389341533,
+        -2580.619037624342
       ],
       "size": [
         1786.3930882854354,
         1807.8594935432557
       ],
       "flags": {},
-      "order": 29,
+      "order": 32,
       "mode": 0,
       "inputs": [
         {
@@ -1704,7 +1586,7 @@
       "properties": {
         "cnr_id": "comfy-core",
         "ver": "0.41.0",
-        "Last Time Model File": "3d/ComfyUI_00143_.glb",
+        "Last Time Model File": "3d/ComfyUI_00149_.glb",
         "Last Time Model Folder": "output",
         "Camera Config": {
           "cameraType": "perspective",
@@ -1712,22 +1594,22 @@
           "hasCustomUp": false,
           "state": {
             "position": {
-              "x": -0.06776067413892181,
-              "y": 0.5598494451809626,
-              "z": 1.5684887814472381
+              "x": 0.47020145256243273,
+              "y": 0.5969879741977098,
+              "z": 1.4844407040407035
             },
             "target": {
-              "x": 0.00009146332740783693,
-              "y": -0.0014188885688781738,
-              "z": -0.000015884637832641605
+              "x": 0.00021135807037353516,
+              "y": 0.00019544363021850586,
+              "z": 0.0005370974540710449
             },
             "zoom": 1,
             "cameraType": "perspective",
             "quaternion": {
-              "x": -0.17078941956058322,
-              "y": -0.021296683517863096,
-              "z": -0.003692373693601496,
-              "w": 0.9850704501779585
+              "x": -0.17990266579041883,
+              "y": 0.15021188389316517,
+              "z": 0.027809126000917814,
+              "w": 0.9717500055517532
             },
             "fov": 35,
             "aspect": 1.0652962515114872,
@@ -1857,15 +1739,15 @@
       "id": 267,
       "type": "UniForge3DShape1024",
       "pos": [
-        666.9431444675919,
-        -387.47461194854
+        610,
+        -430
       ],
       "size": [
         444.046875,
         282
       ],
       "flags": {},
-      "order": 31,
+      "order": 36,
       "mode": 0,
       "inputs": [
         {
@@ -1917,21 +1799,21 @@
         "Node name for S&R": "UniForge3DShape1024"
       },
       "widgets_values": [
-        25,
+        50,
         7.5,
         0,
         6,
         0.00001,
-        0.6,
+        0.3,
         1
       ],
       "widgets_values_named": {
-        "shape1024_steps": 25,
+        "shape1024_steps": 50,
         "shape1024_guidance_strength": 7.5,
         "shape1024_guidance_rescale": 0,
         "shape1024_rescale_t": 6,
         "shape1024_sigma_min": 0.00001,
-        "shape1024_guidance_interval_start": 0.6,
+        "shape1024_guidance_interval_start": 0.3,
         "shape1024_guidance_interval_end": 1
       }
     },
@@ -1982,15 +1864,15 @@
       "id": 271,
       "type": "ImageUpscaleWithModel",
       "pos": [
-        -3380,
-        370
+        -3122.932038479891,
+        -211.28747205586978
       ],
       "size": [
-        291.4952905744012,
-        88.7597437354296
+        257.31135953058174,
+        54.000004806056495
       ],
       "flags": {},
-      "order": 7,
+      "order": 9,
       "mode": 4,
       "inputs": [
         {
@@ -2023,15 +1905,15 @@
       "id": 272,
       "type": "ImageResizeKJv2",
       "pos": [
-        -2520,
-        590
+        -2707.992182449085,
+        -114.17410713979325
       ],
       "size": [
         270,
         286
       ],
       "flags": {},
-      "order": 10,
+      "order": 12,
       "mode": 4,
       "inputs": [
         {
@@ -2051,7 +1933,7 @@
           "name": "IMAGE",
           "type": "IMAGE",
           "links": [
-            616
+            660
           ]
         },
         {
@@ -2095,6 +1977,471 @@
         "divisible_by": 2,
         "device": "cpu"
       }
+    },
+    {
+      "id": 279,
+      "type": "Hi3DRefine",
+      "pos": [
+        2070,
+        -1970
+      ],
+      "size": [
+        283.748046875,
+        574
+      ],
+      "flags": {},
+      "order": 35,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "hi3d_model",
+          "type": "HI3D_MODEL",
+          "link": 642
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 645
+        },
+        {
+          "name": "trimesh",
+          "type": "TRIMESH",
+          "link": 648
+        },
+        {
+          "name": "mask",
+          "shape": 7,
+          "type": "MASK",
+          "link": 646
+        }
+      ],
+      "outputs": [
+        {
+          "name": "trimesh",
+          "type": "TRIMESH",
+          "links": [
+            643
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "Rizzlord/ComfyUI-Hi3D",
+        "ver": "15389b88ba0a209dd668df4c3cc9d7cbea339ec9",
+        "Node name for S&R": "Hi3DRefine"
+      },
+      "widgets_values": [
+        1024,
+        25,
+        42,
+        "fixed",
+        "heun",
+        1,
+        0.7,
+        1,
+        true,
+        true,
+        0,
+        true,
+        0.005,
+        10000,
+        true,
+        false,
+        true,
+        false,
+        0.002,
+        2
+      ],
+      "widgets_values_named": {
+        "resolution": 1024,
+        "steps": 25,
+        "seed": 42,
+        "fixed": "fixed",
+        "scheduler": "heun",
+        "guidance_strength": 1,
+        "guidance_cutoff": 0.7,
+        "voxel_budget_scale": 1,
+        "tiled_decode": true,
+        "reduce_faces": true,
+        "target_face_count": 0,
+        "remove_floaters": true,
+        "floater_face_ratio": 0.005,
+        "fill_holes_max_edges": 10000,
+        "restore_input_scale": true,
+        "remove_background": false,
+        "force_offload": true,
+        "invert_mask": false,
+        "sigma_min": 0.002,
+        "time_rescale_factor": 2
+      }
+    },
+    {
+      "id": 280,
+      "type": "Hi3DExport",
+      "pos": [
+        2520,
+        -1790
+      ],
+      "size": [
+        270,
+        82
+      ],
+      "flags": {},
+      "order": 37,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "trimesh",
+          "type": "TRIMESH",
+          "link": 643
+        }
+      ],
+      "outputs": [
+        {
+          "name": "file_path",
+          "type": "STRING",
+          "links": []
+        }
+      ],
+      "properties": {
+        "aux_id": "Rizzlord/ComfyUI-Hi3D",
+        "ver": "15389b88ba0a209dd668df4c3cc9d7cbea339ec9",
+        "Node name for S&R": "Hi3DExport"
+      },
+      "widgets_values": [
+        "3D/Hi3D",
+        "glb"
+      ],
+      "widgets_values_named": {
+        "filename_prefix": "3D/Hi3D",
+        "file_format": "glb"
+      }
+    },
+    {
+      "id": 281,
+      "type": "Hi3DLoadModel",
+      "pos": [
+        1610,
+        -2210
+      ],
+      "size": [
+        270,
+        202
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "hi3d_model",
+          "type": "HI3D_MODEL",
+          "links": [
+            642
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "Rizzlord/ComfyUI-Hi3D",
+        "ver": "15389b88ba0a209dd668df4c3cc9d7cbea339ec9",
+        "Node name for S&R": "Hi3DLoadModel"
+      },
+      "widgets_values": [
+        "Hi3Dv1.0",
+        "dinov2-large",
+        "clip-vit-large-patch14",
+        "model_swap",
+        false,
+        "default",
+        "default"
+      ],
+      "widgets_values_named": {
+        "model": "Hi3Dv1.0",
+        "dino_model": "dinov2-large",
+        "clip_model": "clip-vit-large-patch14",
+        "vram_mode": "model_swap",
+        "auto_download": false,
+        "transformer_512": "default",
+        "transformer_1024": "default"
+      }
+    },
+    {
+      "id": 282,
+      "type": "Trellis2MeshToTrimesh",
+      "pos": [
+        1683.9325315785964,
+        -1853.4957532795825
+      ],
+      "size": [
+        285.1744140625,
+        58
+      ],
+      "flags": {},
+      "order": 33,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "mesh",
+          "type": "MESH",
+          "link": 647
+        }
+      ],
+      "outputs": [
+        {
+          "name": "trimesh",
+          "type": "TRIMESH",
+          "links": [
+            648
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "Mstafa-awad/STM-Surface-Texture-Mapper-comfyui-nodes-",
+        "ver": "656bbfee1ca7b96b9245db0c6ff6b204b6703097",
+        "Node name for S&R": "Trellis2MeshToTrimesh"
+      },
+      "widgets_values": [
+        0
+      ],
+      "widgets_values_named": {
+        "batch_index": 0
+      }
+    },
+    {
+      "id": 284,
+      "type": "BiRefNetRMBG",
+      "pos": [
+        -2328.075901395018,
+        -1138.4771295660194
+      ],
+      "size": [
+        340,
+        244
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 653
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            656,
+            657
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": []
+        },
+        {
+          "name": "MASK_IMAGE",
+          "type": "IMAGE",
+          "links": []
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-rmbg",
+        "ver": "3.0.0",
+        "Node name for S&R": "BiRefNetRMBG"
+      },
+      "widgets_values": [
+        "BiRefNet-general",
+        0,
+        0,
+        false,
+        false,
+        "Alpha",
+        "#222222"
+      ],
+      "widgets_values_named": {
+        "model": "BiRefNet-general",
+        "mask_blur": 0,
+        "mask_offset": 0,
+        "invert_output": false,
+        "refine_foreground": false,
+        "background": "Alpha",
+        "background_color": "#222222"
+      },
+      "color": "#222e40",
+      "bgcolor": "#364254"
+    },
+    {
+      "id": 285,
+      "type": "PreviewImage",
+      "pos": [
+        -1477.110495174229,
+        -1936.6166002577347
+      ],
+      "size": [
+        1000.5509902863798,
+        615.66325129312
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 656
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.41.0",
+        "Node name for S&R": "PreviewImage"
+      }
+    },
+    {
+      "id": 286,
+      "type": "BiRefNetRMBG",
+      "pos": [
+        -2314.6152304851685,
+        -675.0020885969589
+      ],
+      "size": [
+        340,
+        244
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 14,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 658
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            659
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": []
+        },
+        {
+          "name": "MASK_IMAGE",
+          "type": "IMAGE",
+          "links": []
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-rmbg",
+        "ver": "3.0.0",
+        "Node name for S&R": "BiRefNetRMBG"
+      },
+      "widgets_values": [
+        "BiRefNet-general",
+        0,
+        0,
+        false,
+        false,
+        "Alpha",
+        "#222222"
+      ],
+      "widgets_values_named": {
+        "model": "BiRefNet-general",
+        "mask_blur": 0,
+        "mask_offset": 0,
+        "invert_output": false,
+        "refine_foreground": false,
+        "background": "Alpha",
+        "background_color": "#222222"
+      },
+      "color": "#222e40",
+      "bgcolor": "#364254"
+    },
+    {
+      "id": 287,
+      "type": "BiRefNetRMBG",
+      "pos": [
+        -2338.4332579177753,
+        -123.09439640987421
+      ],
+      "size": [
+        340,
+        244
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 15,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 660
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            661
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": []
+        },
+        {
+          "name": "MASK_IMAGE",
+          "type": "IMAGE",
+          "links": []
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-rmbg",
+        "ver": "3.0.0",
+        "Node name for S&R": "BiRefNetRMBG"
+      },
+      "widgets_values": [
+        "BiRefNet-general",
+        0,
+        0,
+        false,
+        false,
+        "Alpha",
+        "#222222"
+      ],
+      "widgets_values_named": {
+        "model": "BiRefNet-general",
+        "mask_blur": 0,
+        "mask_offset": 0,
+        "invert_output": false,
+        "refine_foreground": false,
+        "background": "Alpha",
+        "background_color": "#222222"
+      },
+      "color": "#222e40",
+      "bgcolor": "#364254"
     }
   ],
   "links": [
@@ -2167,22 +2514,6 @@
       152,
       0,
       164,
-      0,
-      "IMAGE"
-    ],
-    [
-      346,
-      164,
-      0,
-      163,
-      0,
-      "IMAGE"
-    ],
-    [
-      349,
-      158,
-      0,
-      165,
       0,
       "IMAGE"
     ],
@@ -2267,22 +2598,6 @@
       "IMAGE"
     ],
     [
-      555,
-      245,
-      0,
-      117,
-      0,
-      "MESH"
-    ],
-    [
-      566,
-      183,
-      0,
-      245,
-      0,
-      "MESH"
-    ],
-    [
       568,
       89,
       0,
@@ -2297,14 +2612,6 @@
       250,
       0,
       "TRIMESH"
-    ],
-    [
-      576,
-      165,
-      0,
-      254,
-      0,
-      "IMAGE"
     ],
     [
       579,
@@ -2491,58 +2798,10 @@
       "UPSCALE_MODEL"
     ],
     [
-      620,
-      257,
-      0,
-      102,
-      0,
-      "MESH"
-    ],
-    [
       624,
       220,
       0,
       260,
-      0,
-      "MESH"
-    ],
-    [
-      628,
-      230,
-      0,
-      223,
-      0,
-      "MESH"
-    ],
-    [
-      530,
-      165,
-      0,
-      160,
-      0,
-      "IMAGE"
-    ],
-    [
-      415,
-      164,
-      0,
-      160,
-      1,
-      "IMAGE"
-    ],
-    [
-      616,
-      272,
-      0,
-      160,
-      2,
-      "IMAGE"
-    ],
-    [
-      495,
-      225,
-      0,
-      220,
       0,
       "MESH"
     ],
@@ -2571,12 +2830,148 @@
       "MASK"
     ],
     [
-      633,
+      495,
+      225,
+      0,
+      220,
+      0,
+      "MESH"
+    ],
+    [
+      640,
+      230,
+      0,
+      102,
+      0,
+      "MESH"
+    ],
+    [
+      641,
+      102,
+      0,
+      223,
+      0,
+      "MESH"
+    ],
+    [
+      642,
+      281,
+      0,
+      279,
+      0,
+      "HI3D_MODEL"
+    ],
+    [
+      643,
+      279,
+      0,
+      280,
+      0,
+      "TRIMESH"
+    ],
+    [
+      645,
+      157,
+      0,
+      279,
+      1,
+      "IMAGE"
+    ],
+    [
+      646,
       157,
       1,
-      165,
-      1,
+      279,
+      3,
       "MASK"
+    ],
+    [
+      647,
+      220,
+      0,
+      282,
+      0,
+      "MESH"
+    ],
+    [
+      648,
+      282,
+      0,
+      279,
+      2,
+      "TRIMESH"
+    ],
+    [
+      649,
+      183,
+      0,
+      117,
+      0,
+      "MESH"
+    ],
+    [
+      653,
+      165,
+      0,
+      284,
+      0,
+      "IMAGE"
+    ],
+    [
+      654,
+      157,
+      0,
+      165,
+      0,
+      "IMAGE"
+    ],
+    [
+      656,
+      284,
+      0,
+      285,
+      0,
+      "IMAGE"
+    ],
+    [
+      658,
+      164,
+      0,
+      286,
+      0,
+      "IMAGE"
+    ],
+    [
+      660,
+      272,
+      0,
+      287,
+      0,
+      "IMAGE"
+    ],
+    [
+      657,
+      284,
+      0,
+      160,
+      0,
+      "IMAGE"
+    ],
+    [
+      659,
+      286,
+      0,
+      160,
+      1,
+      "IMAGE"
+    ],
+    [
+      661,
+      287,
+      0,
+      160,
+      2,
+      "IMAGE"
     ]
   ],
   "groups": [
@@ -2584,8 +2979,8 @@
       "id": 1,
       "title": "Uniforge",
       "bounding": [
-        -1266.233540061903,
-        -625.0789406393319,
+        -1318.2588098703466,
+        -665.2127202058457,
         2422.7271861302634,
         678.6251464207329
       ],
@@ -2644,10 +3039,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.5559917313492961,
+      "scale": 0.25937424601003545,
       "offset": [
-        2021.2182363792924,
-        1160.1355245929958
+        3131.4871586515665,
+        2613.46632413761
       ]
     },
     "frontendVersion": "1.55.18",
