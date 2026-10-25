@@ -10,6 +10,7 @@ import tempfile
 import torch
 import trimesh
 
+from .uniforge3d.pipelines.samplers.flow_euler import DEFAULT_SAMPLER_METHOD
 from .uniforge3d.utils import mesh
 
 
@@ -191,6 +192,7 @@ class UniForge3DSparseStructure:
                 "structure_guidance_rescale": ("FLOAT", {"default": 0.7, "min": -1.0, "max": 1.0, "step": 0.01}),
                 "structure_rescale_t": ("FLOAT", {"default": 5.0, "min": 0.0, "max": 10.0, "step": 0.01}),
                 "structure_sigma_min": ("FLOAT", {"default": 1e-05, "min": 1e-6, "max": 0.1, "step": 1e-6}),
+                "sampler_method": (["euler", "rk4"], {"default": DEFAULT_SAMPLER_METHOD}),
 
             }
         }
@@ -205,7 +207,7 @@ class UniForge3DSparseStructure:
         self, model, batch, dino_features_512, denoise_sparse,
         denoise_iterations, structure_steps, structure_guidance_strength,
         structure_guidance_interval_start, structure_guidance_interval_end,
-        structure_guidance_rescale, structure_rescale_t, structure_sigma_min,
+        structure_guidance_rescale, structure_rescale_t, structure_sigma_min, sampler_method, 
     ):
         torch.cuda.set_device(model.device)
         verbose = True
@@ -220,7 +222,7 @@ class UniForge3DSparseStructure:
         model.config["sparse_structure"]["sampler"]["args"]["sigma_min"] = float(structure_sigma_min)
       
         print("[UniForge3D] Stage 2/5: Generating sparse structure...")
-        sparse_structure = model._generate_structure(batch, dino_features_512)
+        sparse_structure = model._generate_structure(batch, dino_features_512, sampler_method=sampler_method)
         release_cache = getattr(globals(), "release_cuda", None)
         if release_cache:
             release_cache()
@@ -373,7 +375,7 @@ class UniForge3DSparsePostProcess:
                     for z in range(volume.shape[0]):
                         volume[z] = remove_small_holes(
                             volume[z],
-                            area_threshold=max(2, structure_size ** 2),
+                            max_size=max(2, structure_size ** 2),
                         )
 
                 else:
@@ -467,6 +469,7 @@ class UniForge3DShape512Mesh:
                 "shape512_sigma_min": ("FLOAT", {"default": 1e-05, "min": 1e-6, "max": 0.1, "step": 1e-6}),
                 "shape512_guidance_interval_start": ("FLOAT", {"default": 0.6, "min": 0.0, "max": 1.0, "step": 0.01}),
                 "shape512_guidance_interval_end": ("FLOAT", {"default": 1.0, "min": 0.0, "max": 1.0, "step": 0.01}),
+                "sampler_method": (["euler", "rk4"], {"default": DEFAULT_SAMPLER_METHOD}),
             }
         }
 
@@ -480,7 +483,7 @@ class UniForge3DShape512Mesh:
         self, model, batch, sparse_structure_32, sparse_structure_64, dino_features_512,
         sparse_structure_resolution, decode_resolution, shape512_steps, shape512_guidance_strength,shape512_guidance_rescale,
         shape512_rescale_t, shape512_sigma_min, shape512_guidance_interval_start,
-        shape512_guidance_interval_end
+        shape512_guidance_interval_end, sampler_method
     ):
         torch.cuda.set_device(model.device)
         
@@ -498,6 +501,7 @@ class UniForge3DShape512Mesh:
             batch, sparse_structure_32, sparse_structure_64, dino_features_512,
             sparse_resolution=sparse_structure_resolution,
             lr_resolution=decode_resolution,
+            sampler_method=sampler_method,
         )
 
      
@@ -708,6 +712,7 @@ class UniForge3DShape1024:
                 "shape1024_sigma_min": ("FLOAT", {"default": 1e-05, "min": 1e-6, "max": 0.1, "step": 1e-6}),
                 "shape1024_guidance_interval_start": ("FLOAT", {"default": 0.6, "min": 0.0, "max": 1.0, "step": 0.01}),
                 "shape1024_guidance_interval_end": ("FLOAT", {"default": 1.0, "min": 0.0, "max": 1.0, "step": 0.01}),
+                "sampler_method": (["euler", "rk4"], {"default": DEFAULT_SAMPLER_METHOD}),
                                         
             }
         }
@@ -722,7 +727,8 @@ class UniForge3DShape1024:
         self, model, batch, sparse_structure, structure_conditioned_coords_original,
         dino_features_1024, shape1024_steps, shape1024_guidance_strength,
         shape1024_guidance_rescale, shape1024_rescale_t, shape1024_sigma_min,
-        shape1024_guidance_interval_start, shape1024_guidance_interval_end
+        shape1024_guidance_interval_start, shape1024_guidance_interval_end,
+        sampler_method
     ):
         torch.cuda.set_device(model.device)
         
@@ -741,6 +747,7 @@ class UniForge3DShape1024:
             latent_coords=structure_conditioned_coords_original,
             structure_conditioned_coords=sparse_structure,
             dino_features=dino_features_1024,
+            sampler_method=sampler_method,
         )
 
         #del dino_features_1024
