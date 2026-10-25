@@ -20,6 +20,7 @@ def sample_shape_latent(
     sampling: dict[str, Any],
     *,
     description: str = "Shape sampling",
+    sampler_method: str = "euler",
 ) -> sp.SparseTensor:
     """Sample latent features at fixed coordinates using an encoded condition."""
     # Keep noise on the CPU RNG stream used by the original inference path.
@@ -39,6 +40,7 @@ def sample_shape_latent(
             **sampling["params"],
             verbose=True,
             tqdm_desc=description,
+            sampler_method=sampler_method,
         ).samples
 
 

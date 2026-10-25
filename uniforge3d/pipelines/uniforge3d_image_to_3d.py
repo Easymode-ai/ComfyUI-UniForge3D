@@ -13,6 +13,8 @@ import torch.nn.functional as F
 import trimesh
 from huggingface_hub import snapshot_download
 
+from .samplers.flow_euler import DEFAULT_SAMPLER_METHOD
+
 from ..models.loaders import load_models, resolve_checkpoint
 from ..utils.device import release_cuda
 from ..utils.mesh import (
@@ -138,7 +140,6 @@ class UniForge3DImageTo3DPipeline:
                 local_files_only=local_files_only,
                 allow_patterns=["pipeline.json", "uniforge3d/**/*.pt"],
             ))
-        print(f"[UniForge3D] Loading pipeline configuration from {root / 'pipeline.json'}")
         return cls.from_config(
             root / "pipeline.json", weights_root=root, device=device,
             low_vram=low_vram, cache_dir=cache_dir,
@@ -153,6 +154,7 @@ class UniForge3DImageTo3DPipeline:
     ) -> "UniForge3DImageTo3DPipeline":
         """Load a JSON config; local weights default to the repository's weights/."""
         config = json.loads(Path(config_path).read_text(encoding="utf-8"))
+        print(f"[UniForge3D] Loading configuration from {config_path}")
         root = (Path(weights_root).expanduser() if weights_root is not None
                 else Path(__file__).resolve().parents[2] / "weights")
         options = {"cache_dir": cache_dir, "local_files_only": local_files_only}
@@ -272,6 +274,7 @@ class UniForge3DImageTo3DPipeline:
         self,
         batch: InputBatch,
         dino_features: torch.Tensor,
+        sampler_method: str,
 
     ) -> SparseStructure:
         print("[UniForge3D] → Loading Structure model...")
@@ -302,6 +305,7 @@ class UniForge3DImageTo3DPipeline:
                 dino_features.to(self.device),
                 **sampling["args"],
                 **sampling["params"],
+                sampler_method=sampler_method,
             )
         with self._use_models(self.structure_decoder):
             occupancy_logits = decode_sparse_structure(
@@ -325,6 +329,7 @@ class UniForge3DImageTo3DPipeline:
         dino_features: torch.Tensor,
         return_view_assignment: bool,
         grid_resolution: int,
+        sampler_method: str,
     ):
         latent_coords = latent_coords.int().contiguous()
         structure_conditioned_coords = (
@@ -379,6 +384,7 @@ class UniForge3DImageTo3DPipeline:
                 description=(
                     f"Shape-{config['decoder']['resolution']} sampling"
                 ),
+                sampler_method=sampler_method
             )
 
             view_assignment = (
@@ -420,6 +426,7 @@ class UniForge3DImageTo3DPipeline:
         sparse_resolution: int = 32,
         lr_resolution: int = 512,
         decoder_upsample_times: int = 4,
+        sampler_method: str = DEFAULT_SAMPLER_METHOD,
     ) -> trimesh.Trimesh:
         # Sparse structure is decoded at 64^3, downscale to 32^3 for shape512
         latent_coords = structure_32
@@ -435,6 +442,7 @@ class UniForge3DImageTo3DPipeline:
             dino_features=dino_features,
             return_view_assignment=False,
             grid_resolution=32,
+            sampler_method=sampler_method
             #initial_sparse=None, Initialized CuMesh with vertices and faces
         )
 
@@ -462,6 +470,7 @@ class UniForge3DImageTo3DPipeline:
         latent_coords: torch.Tensor,
         structure_conditioned_coords: torch.Tensor,
         dino_features: torch.Tensor,
+        sampler_method: str,
     ) -> tuple[NormalizedShapeLatent, dict[str, torch.Tensor]]:
         print("[UniForge3D] → Loading Shape1024 model...")
         latent, view_assignment = self._sample_shape(
@@ -473,6 +482,7 @@ class UniForge3DImageTo3DPipeline:
             dino_features=dino_features,
             return_view_assignment=True,
             grid_resolution=64,
+            sampler_method=sampler_method
             #initial_sparse=initial_sparse,
         )
 

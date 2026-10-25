@@ -74,6 +74,7 @@ def sample_sparse_structure(
     guidance_rescale: float,
     rescale_t: float,
     sigma_min: float,
+    sampler_method: str,
 ) -> torch.Tensor:
 
     """Sample Stage1 with explicit conditional and unconditional predictions."""
@@ -107,6 +108,7 @@ def sample_sparse_structure(
         guidance_as_difference=True,
         rescale_t=float(rescale_t),
         tqdm_desc="Sparse structure sampling",
+        sampler_method=sampler_method,
     ).samples
 
 

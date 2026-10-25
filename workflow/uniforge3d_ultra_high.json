@@ -1,8 +1,8 @@
 {
   "id": "c8f0d490-e609-45a0-a188-fb471dcc144a",
   "revision": 0,
-  "last_node_id": 288,
-  "last_link_id": 663,
+  "last_node_id": 289,
+  "last_link_id": 668,
   "nodes": [
     {
       "id": 89,
@@ -16,7 +16,7 @@
         46
       ],
       "flags": {},
-      "order": 17,
+      "order": 16,
       "mode": 0,
       "inputs": [
         {
@@ -77,8 +77,8 @@
             391,
             413,
             589,
-            607,
-            612
+            612,
+            665
           ]
         }
       ],
@@ -91,14 +91,14 @@
         "xibushu/UniForge3D",
         0,
         false,
-        1,
+        8,
         "fixed"
       ],
       "widgets_values_named": {
         "model_name": "xibushu/UniForge3D",
         "device_id": 0,
         "low_vram": false,
-        "seed": 1,
+        "seed": 8,
         "control_after_generate": "fixed"
       }
     },
@@ -114,7 +114,7 @@
         46
       ],
       "flags": {},
-      "order": 18,
+      "order": 17,
       "mode": 0,
       "inputs": [
         {
@@ -156,7 +156,7 @@
         46
       ],
       "flags": {},
-      "order": 19,
+      "order": 18,
       "mode": 0,
       "inputs": [
         {
@@ -198,7 +198,7 @@
         250
       ],
       "flags": {},
-      "order": 26,
+      "order": 25,
       "mode": 4,
       "inputs": [
         {
@@ -256,7 +256,7 @@
         250
       ],
       "flags": {},
-      "order": 40,
+      "order": 36,
       "mode": 0,
       "inputs": [
         {
@@ -269,7 +269,9 @@
         {
           "name": "mesh",
           "type": "MESH",
-          "links": []
+          "links": [
+            668
+          ]
         }
       ],
       "properties": {
@@ -312,7 +314,7 @@
         362
       ],
       "flags": {},
-      "order": 20,
+      "order": 19,
       "mode": 0,
       "inputs": [
         {
@@ -362,7 +364,8 @@
         1,
         0.7,
         5,
-        0.00001
+        0.00001,
+        "euler"
       ],
       "widgets_values_named": {
         "denoise_sparse": true,
@@ -373,7 +376,8 @@
         "structure_guidance_interval_end": 1,
         "structure_guidance_rescale": 0.7,
         "structure_rescale_t": 5,
-        "structure_sigma_min": 0.00001
+        "structure_sigma_min": 0.00001,
+        "sampler_method": "euler"
       }
     },
     {
@@ -388,13 +392,13 @@
         58
       ],
       "flags": {},
-      "order": 41,
+      "order": 38,
       "mode": 0,
       "inputs": [
         {
           "name": "mesh",
           "type": "MESH",
-          "link": 663
+          "link": 668
         }
       ],
       "outputs": [
@@ -430,7 +434,7 @@
         106
       ],
       "flags": {},
-      "order": 43,
+      "order": 39,
       "mode": 0,
       "inputs": [
         {
@@ -474,7 +478,7 @@
         54.00005969460322
       ],
       "flags": {},
-      "order": 8,
+      "order": 7,
       "mode": 4,
       "inputs": [
         {
@@ -562,7 +566,6 @@
           "type": "IMAGE",
           "links": [
             538,
-            645,
             654
           ]
         },
@@ -570,8 +573,7 @@
           "name": "MASK",
           "type": "MASK",
           "links": [
-            632,
-            646
+            632
           ]
         }
       ],
@@ -601,7 +603,7 @@
         46
       ],
       "flags": {},
-      "order": 6,
+      "order": 5,
       "mode": 4,
       "inputs": [
         {
@@ -637,10 +639,10 @@
       ],
       "size": [
         140,
-        86
+        106
       ],
       "flags": {},
-      "order": 16,
+      "order": 15,
       "mode": 0,
       "inputs": [
         {
@@ -694,7 +696,7 @@
         286
       ],
       "flags": {},
-      "order": 11,
+      "order": 10,
       "mode": 4,
       "inputs": [
         {
@@ -771,7 +773,7 @@
         286
       ],
       "flags": {},
-      "order": 7,
+      "order": 6,
       "mode": 0,
       "inputs": [
         {
@@ -848,7 +850,7 @@
         78
       ],
       "flags": {},
-      "order": 38,
+      "order": 34,
       "mode": 0,
       "inputs": [
         {
@@ -867,8 +869,7 @@
           "name": "mesh",
           "type": "MESH",
           "links": [
-            649,
-            663
+            649
           ]
         }
       ],
@@ -896,7 +897,7 @@
         174
       ],
       "flags": {},
-      "order": 31,
+      "order": 30,
       "mode": 0,
       "inputs": [
         {
@@ -915,7 +916,8 @@
           "name": "upsampled_coords",
           "type": "TENSOR",
           "links": [
-            469
+            469,
+            667
           ]
         }
       ],
@@ -941,15 +943,15 @@
       "id": 215,
       "type": "UniForge3DSparsePostProcess",
       "pos": [
-        -750.397623437395,
-        -264.1910742054863
+        -750,
+        -260
       ],
       "size": [
         307.5416015625,
         178
       ],
       "flags": {},
-      "order": 22,
+      "order": 21,
       "mode": 0,
       "inputs": [
         {
@@ -1001,7 +1003,7 @@
         178
       ],
       "flags": {},
-      "order": 34,
+      "order": 32,
       "mode": 4,
       "inputs": [
         {
@@ -1014,9 +1016,7 @@
         {
           "name": "coords",
           "type": "TENSOR",
-          "links": [
-            631
-          ]
+          "links": []
         }
       ],
       "properties": {
@@ -1053,7 +1053,7 @@
         178
       ],
       "flags": {},
-      "order": 21,
+      "order": 20,
       "mode": 0,
       "inputs": [
         {
@@ -1105,7 +1105,7 @@
         178
       ],
       "flags": {},
-      "order": 25,
+      "order": 24,
       "mode": 4,
       "inputs": [
         {
@@ -1155,7 +1155,7 @@
         130
       ],
       "flags": {},
-      "order": 30,
+      "order": 29,
       "mode": 0,
       "inputs": [
         {
@@ -1170,8 +1170,7 @@
           "type": "MESH",
           "links": [
             481,
-            624,
-            647
+            624
           ]
         }
       ],
@@ -1205,7 +1204,7 @@
         58
       ],
       "flags": {},
-      "order": 27,
+      "order": 26,
       "mode": 0,
       "inputs": [
         {
@@ -1247,8 +1246,8 @@
         58
       ],
       "flags": {},
-      "order": 28,
-      "mode": 4,
+      "order": 27,
+      "mode": 0,
       "inputs": [
         {
           "name": "trimesh",
@@ -1289,7 +1288,7 @@
         26
       ],
       "flags": {},
-      "order": 29,
+      "order": 28,
       "mode": 0,
       "inputs": [
         {
@@ -1325,7 +1324,7 @@
         154
       ],
       "flags": {},
-      "order": 24,
+      "order": 23,
       "mode": 0,
       "inputs": [
         {
@@ -1375,7 +1374,7 @@
         106
       ],
       "flags": {},
-      "order": 42,
+      "order": 37,
       "mode": 4,
       "inputs": [
         {
@@ -1419,7 +1418,7 @@
         210
       ],
       "flags": {},
-      "order": 39,
+      "order": 35,
       "mode": 4,
       "inputs": [
         {
@@ -1484,10 +1483,10 @@
       ],
       "size": [
         354.564453125,
-        330
+        354
       ],
       "flags": {},
-      "order": 23,
+      "order": 22,
       "mode": 0,
       "inputs": [
         {
@@ -1539,25 +1538,27 @@
       },
       "widgets_values": [
         64,
-        512,
-        50,
+        1024,
+        25,
         7.5,
         0,
-        6,
+        5,
         0.00001,
-        0.2,
-        1
+        0.6,
+        1,
+        "euler"
       ],
       "widgets_values_named": {
         "sparse_structure_resolution": 64,
-        "decode_resolution": 512,
-        "shape512_steps": 50,
+        "decode_resolution": 1024,
+        "shape512_steps": 25,
         "shape512_guidance_strength": 7.5,
         "shape512_guidance_rescale": 0,
-        "shape512_rescale_t": 6,
+        "shape512_rescale_t": 5,
         "shape512_sigma_min": 0.00001,
-        "shape512_guidance_interval_start": 0.2,
-        "shape512_guidance_interval_end": 1
+        "shape512_guidance_interval_start": 0.6,
+        "shape512_guidance_interval_end": 1,
+        "sampler_method": "euler"
       }
     },
     {
@@ -1572,7 +1573,7 @@
         1807.8594935432557
       ],
       "flags": {},
-      "order": 32,
+      "order": 31,
       "mode": 0,
       "inputs": [
         {
@@ -1585,7 +1586,7 @@
       "properties": {
         "cnr_id": "comfy-core",
         "ver": "0.41.0",
-        "Last Time Model File": "3d/ComfyUI_00150_.glb",
+        "Last Time Model File": "3d/ComfyUI_00158_.glb",
         "Last Time Model Folder": "output",
         "Camera Config": {
           "cameraType": "perspective",
@@ -1593,22 +1594,22 @@
           "hasCustomUp": false,
           "state": {
             "position": {
-              "x": 0.47020145256243273,
-              "y": 0.5969879741977098,
-              "z": 1.4844407040407035
+              "x": -0.5237915290779583,
+              "y": -0.07617468644993536,
+              "z": 1.015352216754761
             },
             "target": {
-              "x": 0.00021135807037353516,
-              "y": 0.00019544363021850586,
-              "z": 0.0005370974540710449
+              "x": -0.24986399034969506,
+              "y": -0.24641597270965576,
+              "z": 0.24808686971664431
             },
             "zoom": 1,
             "cameraType": "perspective",
             "quaternion": {
-              "x": -0.17990266579041883,
-              "y": 0.15021188389316517,
-              "z": 0.027809126000917814,
-              "w": 0.9717500055517532
+              "x": -0.10130956180165243,
+              "y": -0.16971354541532196,
+              "z": -0.017542431377369837,
+              "w": 0.9801152729610374
             },
             "fov": 35,
             "aspect": 1.0652962515114872,
@@ -1738,21 +1739,21 @@
       "id": 267,
       "type": "UniForge3DShape1024",
       "pos": [
-        610,
-        -430
+        641.0665182570411,
+        -456.1612785322452
       ],
       "size": [
         444.046875,
-        282
+        306
       ],
       "flags": {},
-      "order": 36,
+      "order": 33,
       "mode": 0,
       "inputs": [
         {
           "name": "model",
           "type": "UNIFORGE3D_MODEL",
-          "link": 607
+          "link": 665
         },
         {
           "name": "batch",
@@ -1767,7 +1768,7 @@
         {
           "name": "structure_conditioned_coords_original",
           "type": "TENSOR",
-          "link": 631
+          "link": 667
         },
         {
           "name": "dino_features_1024",
@@ -1798,22 +1799,24 @@
         "Node name for S&R": "UniForge3DShape1024"
       },
       "widgets_values": [
-        50,
+        30,
         7.5,
         0,
         6,
         0.00001,
-        0.7,
-        1
+        0.15,
+        1,
+        "rk4"
       ],
       "widgets_values_named": {
-        "shape1024_steps": 50,
+        "shape1024_steps": 30,
         "shape1024_guidance_strength": 7.5,
         "shape1024_guidance_rescale": 0,
         "shape1024_rescale_t": 6,
         "shape1024_sigma_min": 0.00001,
-        "shape1024_guidance_interval_start": 0.7,
-        "shape1024_guidance_interval_end": 1
+        "shape1024_guidance_interval_start": 0.15,
+        "shape1024_guidance_interval_end": 1,
+        "sampler_method": "rk4"
       }
     },
     {
@@ -1871,7 +1874,7 @@
         54.000004806056495
       ],
       "flags": {},
-      "order": 9,
+      "order": 8,
       "mode": 4,
       "inputs": [
         {
@@ -1912,7 +1915,7 @@
         286
       ],
       "flags": {},
-      "order": 12,
+      "order": 11,
       "mode": 4,
       "inputs": [
         {
@@ -1978,234 +1981,6 @@
       }
     },
     {
-      "id": 279,
-      "type": "Hi3DRefine",
-      "pos": [
-        2070,
-        -1970
-      ],
-      "size": [
-        283.748046875,
-        574
-      ],
-      "flags": {},
-      "order": 35,
-      "mode": 4,
-      "inputs": [
-        {
-          "name": "hi3d_model",
-          "type": "HI3D_MODEL",
-          "link": 642
-        },
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "link": 645
-        },
-        {
-          "name": "trimesh",
-          "type": "TRIMESH",
-          "link": 648
-        },
-        {
-          "name": "mask",
-          "shape": 7,
-          "type": "MASK",
-          "link": 646
-        }
-      ],
-      "outputs": [
-        {
-          "name": "trimesh",
-          "type": "TRIMESH",
-          "links": [
-            643
-          ]
-        }
-      ],
-      "properties": {
-        "aux_id": "Rizzlord/ComfyUI-Hi3D",
-        "ver": "15389b88ba0a209dd668df4c3cc9d7cbea339ec9",
-        "Node name for S&R": "Hi3DRefine"
-      },
-      "widgets_values": [
-        1024,
-        25,
-        42,
-        "fixed",
-        "heun",
-        1,
-        0.7,
-        1,
-        true,
-        true,
-        0,
-        true,
-        0.005,
-        10000,
-        true,
-        false,
-        true,
-        false,
-        0.002,
-        2
-      ],
-      "widgets_values_named": {
-        "resolution": 1024,
-        "steps": 25,
-        "seed": 42,
-        "fixed": "fixed",
-        "scheduler": "heun",
-        "guidance_strength": 1,
-        "guidance_cutoff": 0.7,
-        "voxel_budget_scale": 1,
-        "tiled_decode": true,
-        "reduce_faces": true,
-        "target_face_count": 0,
-        "remove_floaters": true,
-        "floater_face_ratio": 0.005,
-        "fill_holes_max_edges": 10000,
-        "restore_input_scale": true,
-        "remove_background": false,
-        "force_offload": true,
-        "invert_mask": false,
-        "sigma_min": 0.002,
-        "time_rescale_factor": 2
-      }
-    },
-    {
-      "id": 280,
-      "type": "Hi3DExport",
-      "pos": [
-        2520,
-        -1790
-      ],
-      "size": [
-        270,
-        82
-      ],
-      "flags": {},
-      "order": 37,
-      "mode": 4,
-      "inputs": [
-        {
-          "name": "trimesh",
-          "type": "TRIMESH",
-          "link": 643
-        }
-      ],
-      "outputs": [
-        {
-          "name": "file_path",
-          "type": "STRING",
-          "links": []
-        }
-      ],
-      "properties": {
-        "aux_id": "Rizzlord/ComfyUI-Hi3D",
-        "ver": "15389b88ba0a209dd668df4c3cc9d7cbea339ec9",
-        "Node name for S&R": "Hi3DExport"
-      },
-      "widgets_values": [
-        "3D/Hi3D",
-        "glb"
-      ],
-      "widgets_values_named": {
-        "filename_prefix": "3D/Hi3D",
-        "file_format": "glb"
-      }
-    },
-    {
-      "id": 281,
-      "type": "Hi3DLoadModel",
-      "pos": [
-        1610,
-        -2210
-      ],
-      "size": [
-        270,
-        202
-      ],
-      "flags": {},
-      "order": 5,
-      "mode": 4,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "hi3d_model",
-          "type": "HI3D_MODEL",
-          "links": [
-            642
-          ]
-        }
-      ],
-      "properties": {
-        "aux_id": "Rizzlord/ComfyUI-Hi3D",
-        "ver": "15389b88ba0a209dd668df4c3cc9d7cbea339ec9",
-        "Node name for S&R": "Hi3DLoadModel"
-      },
-      "widgets_values": [
-        "Hi3Dv1.0",
-        "dinov2-large",
-        "clip-vit-large-patch14",
-        "model_swap",
-        false,
-        "default",
-        "default"
-      ],
-      "widgets_values_named": {
-        "model": "Hi3Dv1.0",
-        "dino_model": "dinov2-large",
-        "clip_model": "clip-vit-large-patch14",
-        "vram_mode": "model_swap",
-        "auto_download": false,
-        "transformer_512": "default",
-        "transformer_1024": "default"
-      }
-    },
-    {
-      "id": 282,
-      "type": "Trellis2MeshToTrimesh",
-      "pos": [
-        1683.9325315785964,
-        -1853.4957532795825
-      ],
-      "size": [
-        285.1744140625,
-        58
-      ],
-      "flags": {},
-      "order": 33,
-      "mode": 4,
-      "inputs": [
-        {
-          "name": "mesh",
-          "type": "MESH",
-          "link": 647
-        }
-      ],
-      "outputs": [
-        {
-          "name": "trimesh",
-          "type": "TRIMESH",
-          "links": [
-            648
-          ]
-        }
-      ],
-      "properties": {
-        "aux_id": "Mstafa-awad/STM-Surface-Texture-Mapper-comfyui-nodes-",
-        "ver": "656bbfee1ca7b96b9245db0c6ff6b204b6703097",
-        "Node name for S&R": "Trellis2MeshToTrimesh"
-      },
-      "widgets_values": [
-        0
-      ],
-      "widgets_values_named": {
-        "batch_index": 0
-      }
-    },
-    {
       "id": 284,
       "type": "BiRefNetRMBG",
       "pos": [
@@ -2217,7 +1992,7 @@
         244
       ],
       "flags": {},
-      "order": 10,
+      "order": 9,
       "mode": 0,
       "inputs": [
         {
@@ -2280,11 +2055,11 @@
         -1936.6166002577347
       ],
       "size": [
-        1000.5509902863798,
-        615.66325129312
+        676.6801382953088,
+        645.809288598056
       ],
       "flags": {},
-      "order": 13,
+      "order": 12,
       "mode": 0,
       "inputs": [
         {
@@ -2320,7 +2095,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 14,
+      "order": 13,
       "mode": 4,
       "inputs": [
         {
@@ -2388,7 +2163,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 15,
+      "order": 14,
       "mode": 4,
       "inputs": [
         {
@@ -2725,14 +2500,6 @@
       "UNIFORGE3D_BATCH"
     ],
     [
-      607,
-      90,
-      0,
-      267,
-      0,
-      "UNIFORGE3D_MODEL"
-    ],
-    [
       608,
       267,
       1,
@@ -2805,28 +2572,12 @@
       "TENSOR"
     ],
     [
-      631,
-      216,
-      0,
-      267,
-      3,
-      "TENSOR"
-    ],
-    [
       632,
       157,
       1,
       164,
       1,
       "MASK"
-    ],
-    [
-      495,
-      225,
-      0,
-      220,
-      0,
-      "MESH"
     ],
     [
       640,
@@ -2843,54 +2594,6 @@
       223,
       0,
       "MESH"
-    ],
-    [
-      642,
-      281,
-      0,
-      279,
-      0,
-      "HI3D_MODEL"
-    ],
-    [
-      643,
-      279,
-      0,
-      280,
-      0,
-      "TRIMESH"
-    ],
-    [
-      645,
-      157,
-      0,
-      279,
-      1,
-      "IMAGE"
-    ],
-    [
-      646,
-      157,
-      1,
-      279,
-      3,
-      "MASK"
-    ],
-    [
-      647,
-      220,
-      0,
-      282,
-      0,
-      "MESH"
-    ],
-    [
-      648,
-      282,
-      0,
-      279,
-      2,
-      "TRIMESH"
     ],
     [
       649,
@@ -2941,6 +2644,14 @@
       "IMAGE"
     ],
     [
+      665,
+      90,
+      0,
+      267,
+      0,
+      "UNIFORGE3D_MODEL"
+    ],
+    [
       657,
       284,
       0,
@@ -2965,8 +2676,24 @@
       "IMAGE"
     ],
     [
-      663,
-      183,
+      495,
+      225,
+      0,
+      220,
+      0,
+      "MESH"
+    ],
+    [
+      667,
+      195,
+      0,
+      267,
+      3,
+      "TENSOR"
+    ],
+    [
+      668,
+      117,
       0,
       136,
       0,
@@ -3038,10 +2765,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.611590904484232,
+      "scale": 0.21435888100003372,
       "offset": [
-        155.209922447999,
-        1155.219438260057
+        4365.565520934515,
+        2940.826963785188
       ]
     },
     "frontendVersion": "1.55.18",

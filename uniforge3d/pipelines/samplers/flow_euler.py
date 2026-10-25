@@ -1,12 +1,16 @@
-"""Shared flow-matching Euler sampler for every cascade stage."""
+"""Shared flow-matching Euler and RK4 sampler for every cascade stage."""
 
 from collections.abc import Callable
-from typing import Any
+from typing import Any, Literal
 
 import numpy as np
 import torch
 from easydict import EasyDict as edict
 from tqdm import tqdm
+
+
+# Sampler configuration option: choose between "euler" and "rk4"
+DEFAULT_SAMPLER_METHOD: Literal["euler", "rk4"] = "rk4"
 
 
 Prediction = Callable[[Any, float, bool], Any]
@@ -36,7 +40,7 @@ def model_predictor(
 
 
 class FlowEulerSampler:
-    """Euler/CFG sampling shared by sparse structure, shape, and texture."""
+    """Euler / RK4 CFG sampling shared by sparse structure, shape, and texture."""
 
     def __init__(self, sigma_min: float):
         self.sigma_min = sigma_min
@@ -104,27 +108,81 @@ class FlowEulerSampler:
         guidance_rescale: float = 0.0,
         guidance_as_difference: bool = False,
         verbose: bool = True,
-        tqdm_desc: str = "Sampling",
+        tqdm_desc: str = "Sampling ",
+        sampler_method: Literal["euler", "rk4"] = DEFAULT_SAMPLER_METHOD,
     ):
-        """Run the common Euler/CFG update using a stage-specific predictor."""
+        """Run the common Euler or RK4 CFG update using a stage-specific predictor."""
         sample = noise
         times = np.linspace(1, 0, steps + 1)
         times = rescale_t * times / (1 + (rescale_t - 1) * times)
         time_pairs = list(zip(times[:-1].tolist(), times[1:].tolist()))
+        desc = f"{tqdm_desc} ({sampler_method.upper()})"
         for current, previous in tqdm(
             time_pairs,
-            desc=tqdm_desc,
+            desc=desc,
             disable=not verbose,
             bar_format="{desc}: {percentage:3.0f}%|{bar}| {n_fmt}/{total_fmt}",
         ):
-            prediction = self._guided_prediction(
-                predict,
-                sample,
-                current,
-                guidance_strength,
-                guidance_interval,
-                guidance_rescale,
-                guidance_as_difference,
-            )
-            sample = sample - (current - previous) * prediction
+            dt = current - previous
+
+            if sampler_method == "euler":
+                prediction = self._guided_prediction(
+                    predict,
+                    sample,
+                    current,
+                    guidance_strength,
+                    guidance_interval,
+                    guidance_rescale,
+                    guidance_as_difference,
+                )
+                sample = sample - dt * prediction
+
+            elif sampler_method == "rk4":
+                k1 = self._guided_prediction(
+                    predict,
+                    sample,
+                    current,
+                    guidance_strength,
+                    guidance_interval,
+                    guidance_rescale,
+                    guidance_as_difference,
+                )
+                
+                sample_k2 = sample - 0.5 * dt * k1
+                k2 = self._guided_prediction(
+                    predict,
+                    sample_k2,
+                    current - 0.5 * dt,
+                    guidance_strength,
+                    guidance_interval,
+                    guidance_rescale,
+                    guidance_as_difference,
+                )
+                
+                sample_k3 = sample - 0.5 * dt * k2
+                k3 = self._guided_prediction(
+                    predict,
+                    sample_k3,
+                    current - 0.5 * dt,
+                    guidance_strength,
+                    guidance_interval,
+                    guidance_rescale,
+                    guidance_as_difference,
+                )
+                
+                sample_k4 = sample - dt * k3
+                k4 = self._guided_prediction(
+                    predict,
+                    sample_k4,
+                    previous,
+                    guidance_strength,
+                    guidance_interval,
+                    guidance_rescale,
+                    guidance_as_difference,
+                )
+                
+                sample = sample - (dt / 6.0) * (k1 + 2 * k2 + 2 * k3 + k4)
+            else:
+                raise ValueError(f"Unknown sampling method: {sampler_method}. Choose 'euler' or 'rk4'.")
+
         return edict(samples=sample)
