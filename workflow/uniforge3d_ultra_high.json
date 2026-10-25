@@ -1,8 +1,8 @@
 {
   "id": "c8f0d490-e609-45a0-a188-fb471dcc144a",
   "revision": 0,
-  "last_node_id": 287,
-  "last_link_id": 661,
+  "last_node_id": 288,
+  "last_link_id": 663,
   "nodes": [
     {
       "id": 89,
@@ -269,9 +269,7 @@
         {
           "name": "mesh",
           "type": "MESH",
-          "links": [
-            593
-          ]
+          "links": []
         }
       ],
       "properties": {
@@ -390,13 +388,13 @@
         58
       ],
       "flags": {},
-      "order": 42,
+      "order": 41,
       "mode": 0,
       "inputs": [
         {
           "name": "mesh",
           "type": "MESH",
-          "link": 593
+          "link": 663
         }
       ],
       "outputs": [
@@ -869,7 +867,8 @@
           "name": "mesh",
           "type": "MESH",
           "links": [
-            649
+            649,
+            663
           ]
         }
       ],
@@ -1376,7 +1375,7 @@
         106
       ],
       "flags": {},
-      "order": 41,
+      "order": 42,
       "mode": 4,
       "inputs": [
         {
@@ -1586,7 +1585,7 @@
       "properties": {
         "cnr_id": "comfy-core",
         "ver": "0.41.0",
-        "Last Time Model File": "3d/ComfyUI_00149_.glb",
+        "Last Time Model File": "3d/ComfyUI_00150_.glb",
         "Last Time Model Folder": "output",
         "Camera Config": {
           "cameraType": "perspective",
@@ -1804,7 +1803,7 @@
         0,
         6,
         0.00001,
-        0.3,
+        0.7,
         1
       ],
       "widgets_values_named": {
@@ -1813,7 +1812,7 @@
         "shape1024_guidance_rescale": 0,
         "shape1024_rescale_t": 6,
         "shape1024_sigma_min": 0.00001,
-        "shape1024_guidance_interval_start": 0.3,
+        "shape1024_guidance_interval_start": 0.7,
         "shape1024_guidance_interval_end": 1
       }
     },
@@ -2686,14 +2685,6 @@
       "MESH"
     ],
     [
-      593,
-      117,
-      0,
-      136,
-      0,
-      "MESH"
-    ],
-    [
       601,
       263,
       0,
@@ -2972,6 +2963,14 @@
       160,
       2,
       "IMAGE"
+    ],
+    [
+      663,
+      183,
+      0,
+      136,
+      0,
+      "MESH"
     ]
   ],
   "groups": [
@@ -3039,10 +3038,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.25937424601003545,
+      "scale": 0.611590904484232,
       "offset": [
-        3131.4871586515665,
-        2613.46632413761
+        155.209922447999,
+        1155.219438260057
       ]
     },
     "frontendVersion": "1.55.18",
