@@ -235,6 +235,7 @@ class JointDiTVGGTStage1Model(nn.Module):
         t: torch.Tensor,
         vggt_images: torch.Tensor,
         dino_features: torch.Tensor,
+        enable_back_fusion: bool = False,
     ) -> torch.Tensor:
         """Predict velocity conditioned on the input views."""
         if vggt_images.ndim != 5:
@@ -253,6 +254,7 @@ class JointDiTVGGTStage1Model(nn.Module):
             cond,
             vggt_images,
             dino_cond_bank=dino_features,
+            enable_back_fusion=enable_back_fusion,
         )
 
     def _init_vggt_tokens(self, images: torch.Tensor):
@@ -301,6 +303,7 @@ class JointDiTVGGTStage1Model(nn.Module):
         cond: torch.Tensor,
         vggt_images: torch.Tensor,
         dino_cond_bank: torch.Tensor,
+        enable_back_fusion: bool = True,
     ) -> torch.Tensor:
         assert [*x.shape] == [x.shape[0], self.dit.in_channels, *[self.dit.resolution] * 3], (
             f"Input shape mismatch, got {x.shape}"
@@ -322,7 +325,9 @@ class JointDiTVGGTStage1Model(nn.Module):
         frame_idx = 0
         global_idx = 0
         next_dit_block = 0
-
+        if enable_back_fusion:
+            print("Starting forward_joint_with_fusion with back fusion enabled")
+        
         for layer_idx in range(aggregator.depth):
             tokens, frame_idx, frame_intermediates = aggregator._process_frame_attention(
                 tokens, bsz, views, token_count, embed_dim, frame_idx, pos=pos
@@ -362,14 +367,36 @@ class JointDiTVGGTStage1Model(nn.Module):
                 f_query_tokens = manual_cast(global_tokens_raw, self.dit.dtype)
                 batch_q, views_q, query_tokens, dim_q = f_query_tokens.shape
                 f_query_flat = f_query_tokens.reshape(batch_q, views_q * query_tokens, dim_q)
-                f_fused_flat = self.dit_to_vggt[str(stage_start_block)](
-                    f_query_flat,
-                    h,
-                    t_raw,
-                )
-                global_tokens_fused = f_fused_flat.reshape(batch_q, views_q, query_tokens, dim_q)
-                global_tokens = manual_cast(global_tokens_fused, global_tokens_raw.dtype)
-                tokens = global_tokens.reshape(bsz * views, token_count, embed_dim)
+
+                if enable_back_fusion is False:
+                    f_fused_flat = self.dit_to_vggt[str(stage_start_block)](
+                        f_query_flat,
+                        h,
+                        t_raw,
+                    )
+                    global_tokens_fused = f_fused_flat.reshape(batch_q, views_q, query_tokens, dim_q)
+                    global_tokens = manual_cast(global_tokens_fused, global_tokens_raw.dtype)
+                    tokens = global_tokens.reshape(bsz * views, token_count, embed_dim)
+                else:          
+                    delta = self.dit_to_vggt[str(stage_start_block)](
+                        f_query_flat,
+                        h,
+                        t_raw,
+                    )
+                    delta = delta.reshape(
+                        batch_q, views_q, query_tokens, dim_q
+                    )
+                    delta = manual_cast(
+                        delta,
+                        global_tokens_raw.dtype,
+                    )
+                    # Reduce the influence of DiT features.
+                    delta_scale = 0.1
+                    global_tokens = global_tokens_raw + delta_scale * delta
+                    tokens = global_tokens.reshape(
+                        bsz * views, token_count, embed_dim
+                    )
+
 
         while next_dit_block < len(self.dit.blocks):
             block = self.dit.blocks[next_dit_block]

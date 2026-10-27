@@ -275,6 +275,7 @@ class UniForge3DImageTo3DPipeline:
         batch: InputBatch,
         dino_features: torch.Tensor,
         sampler_method: str,
+        enable_back_fusion: bool = False,
 
     ) -> SparseStructure:
         print("[UniForge3D] → Loading Structure model...")
@@ -306,6 +307,7 @@ class UniForge3DImageTo3DPipeline:
                 **sampling["args"],
                 **sampling["params"],
                 sampler_method=sampler_method,
+                enable_back_fusion=enable_back_fusion,
             )
         with self._use_models(self.structure_decoder):
             occupancy_logits = decode_sparse_structure(

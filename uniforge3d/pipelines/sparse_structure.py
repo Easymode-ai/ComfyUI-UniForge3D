@@ -75,6 +75,7 @@ def sample_sparse_structure(
     rescale_t: float,
     sigma_min: float,
     sampler_method: str,
+    enable_back_fusion: bool = False,
 ) -> torch.Tensor:
 
     """Sample Stage1 with explicit conditional and unconditional predictions."""
@@ -94,7 +95,7 @@ def sample_sparse_structure(
             dtype=torch.float32,
         )
         if conditioned:
-            return model(sample, timestep, vggt_images, dino_features)
+            return model(sample, timestep, vggt_images, dino_features, enable_back_fusion=enable_back_fusion)
         return model.forward_unconditional(sample, timestep)
 
     sampler = FlowEulerSampler(sigma_min=float(sigma_min))
