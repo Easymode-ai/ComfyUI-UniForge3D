@@ -326,7 +326,7 @@ class JointDiTVGGTStage1Model(nn.Module):
         global_idx = 0
         next_dit_block = 0
         if enable_back_fusion:
-            print("Starting forward_joint_with_fusion with back fusion enabled")
+            print("\nStarting forward_joint_with_fusion with back fusion enabled")
         
         for layer_idx in range(aggregator.depth):
             tokens, frame_idx, frame_intermediates = aggregator._process_frame_attention(
@@ -377,7 +377,8 @@ class JointDiTVGGTStage1Model(nn.Module):
                     global_tokens_fused = f_fused_flat.reshape(batch_q, views_q, query_tokens, dim_q)
                     global_tokens = manual_cast(global_tokens_fused, global_tokens_raw.dtype)
                     tokens = global_tokens.reshape(bsz * views, token_count, embed_dim)
-                else:          
+                else:      
+                    '''    
                     delta = self.dit_to_vggt[str(stage_start_block)](
                         f_query_flat,
                         h,
@@ -396,6 +397,27 @@ class JointDiTVGGTStage1Model(nn.Module):
                     tokens = global_tokens.reshape(
                         bsz * views, token_count, embed_dim
                     )
+                    '''
+                    # Call the module once regardless of the back fusion flag
+                    output = self.dit_to_vggt[str(stage_start_block)](
+                        f_query_flat,
+                        h,
+                        t_raw,
+                    )
+
+                    # Reshape and cast once
+                    output = output.reshape(batch_q, views_q, query_tokens, dim_q)
+                    output = manual_cast(output, global_tokens_raw.dtype)
+
+                    if not enable_back_fusion:
+                        global_tokens = output
+                    else:
+                        # Reduce the influence of DiT features efficiently using alpha
+                        delta_scale = 0.1
+                        global_tokens = global_tokens_raw.add(output, alpha=delta_scale)
+
+                    # Final reshape is shared
+                    tokens = global_tokens.reshape(bsz * views, token_count, embed_dim)
 
 
         while next_dit_block < len(self.dit.blocks):
