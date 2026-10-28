@@ -526,12 +526,15 @@ class UniForge3DShape512Mesh:
             vertices = vertices.numpy()
         vertices = torch.as_tensor(vertices, dtype=torch.float32)
 
+        print("[UniForge3D] Vertices processed {vertices.shape}".format(vertices=vertices))
+
         faces = mesh512.faces
         if hasattr(faces, "detach"):
             faces = faces.detach().cpu()
         elif hasattr(faces, "numpy"):
             faces = faces.numpy()
         faces = torch.as_tensor(faces, dtype=torch.long)
+        print("[UniForge3D] Faces processed {faces.shape}".format(faces=faces))
 
         mesh_dict = ComfyMeshDict({
             "vertices": vertices,
@@ -540,7 +543,7 @@ class UniForge3DShape512Mesh:
             "face_counts": mesh512.face_counts if hasattr(mesh512, "face_counts") else None
         })
 
-        return (mesh_dict)
+        return (mesh_dict,)
     
 class UniForge3DCoordinateUpsample:
     """Stage 4a: Takes in a MESH dictionary, voxelizes coordinates, and performs VRAM-safe upsampling."""
