@@ -1,8 +1,8 @@
 {
   "id": "c8f0d490-e609-45a0-a188-fb471dcc144a",
   "revision": 0,
-  "last_node_id": 292,
-  "last_link_id": 676,
+  "last_node_id": 295,
+  "last_link_id": 682,
   "nodes": [
     {
       "id": 89,
@@ -16,7 +16,7 @@
         46
       ],
       "flags": {},
-      "order": 16,
+      "order": 17,
       "mode": 0,
       "inputs": [
         {
@@ -39,8 +39,8 @@
             147,
             223,
             568,
-            588,
-            606
+            606,
+            678
           ]
         }
       ],
@@ -76,9 +76,9 @@
             222,
             391,
             413,
-            589,
             612,
-            665
+            665,
+            677
           ]
         }
       ],
@@ -114,7 +114,7 @@
         46
       ],
       "flags": {},
-      "order": 17,
+      "order": 18,
       "mode": 0,
       "inputs": [
         {
@@ -134,7 +134,7 @@
           "type": "DINO_FEATURES_512",
           "links": [
             224,
-            583
+            681
           ]
         }
       ],
@@ -156,7 +156,7 @@
         46
       ],
       "flags": {},
-      "order": 18,
+      "order": 19,
       "mode": 0,
       "inputs": [
         {
@@ -190,8 +190,8 @@
       "id": 102,
       "type": "WTiVoNativeMeshToMesh",
       "pos": [
-        369.6871428755964,
-        -1578.502937977675
+        323.98502435967333,
+        -1585.0318120513782
       ],
       "size": [
         303.3828125,
@@ -257,7 +257,7 @@
       ],
       "flags": {},
       "order": 38,
-      "mode": 0,
+      "mode": 4,
       "inputs": [
         {
           "name": "mesh",
@@ -306,15 +306,15 @@
       "id": 129,
       "type": "UniForge3DSparseStructure",
       "pos": [
-        -1219.6047976215837,
-        -471.58661640115497
+        -1195.904984734041,
+        -445.25349097055175
       ],
       "size": [
         351.798828125,
         362
       ],
       "flags": {},
-      "order": 19,
+      "order": 20,
       "mode": 0,
       "inputs": [
         {
@@ -386,8 +386,8 @@
       "id": 136,
       "type": "Trellis2MeshToTrimesh",
       "pos": [
-        2200,
-        -330
+        2055.5733917029265,
+        -531.8015622781024
       ],
       "size": [
         285.1744140625,
@@ -428,8 +428,8 @@
       "id": 137,
       "type": "CuMeshExportMesh",
       "pos": [
-        2570,
-        -330
+        2243.5562963148345,
+        -304.28019304298687
       ],
       "size": [
         270,
@@ -480,7 +480,7 @@
         54.00005969460322
       ],
       "flags": {},
-      "order": 6,
+      "order": 7,
       "mode": 4,
       "inputs": [
         {
@@ -582,11 +582,11 @@
         "Node name for S&R": "LoadImage"
       },
       "widgets_values": [
-        "bigguy.png",
+        "90ba07d21fc9abb730528d79c677861e.jpg",
         "image"
       ],
       "widgets_values_named": {
-        "image": "bigguy.png",
+        "image": "90ba07d21fc9abb730528d79c677861e.jpg",
         "upload": "image"
       }
     },
@@ -602,7 +602,7 @@
         46
       ],
       "flags": {},
-      "order": 5,
+      "order": 6,
       "mode": 4,
       "inputs": [
         {
@@ -643,7 +643,7 @@
         106
       ],
       "flags": {},
-      "order": 15,
+      "order": 16,
       "mode": 0,
       "inputs": [
         {
@@ -697,7 +697,7 @@
         286
       ],
       "flags": {},
-      "order": 9,
+      "order": 10,
       "mode": 4,
       "inputs": [
         {
@@ -774,7 +774,7 @@
         286
       ],
       "flags": {},
-      "order": 8,
+      "order": 9,
       "mode": 0,
       "inputs": [
         {
@@ -944,15 +944,15 @@
       "id": 215,
       "type": "UniForge3DSparsePostProcess",
       "pos": [
-        -750,
-        -260
+        -726.3001871124568,
+        -233.66687456939675
       ],
       "size": [
         307.5416015625,
         178
       ],
       "flags": {},
-      "order": 21,
+      "order": 22,
       "mode": 0,
       "inputs": [
         {
@@ -966,7 +966,7 @@
           "name": "coords",
           "type": "TENSOR",
           "links": [
-            586
+            680
           ]
         }
       ],
@@ -996,8 +996,8 @@
       "id": 216,
       "type": "UniForge3DSparsePostProcess",
       "pos": [
-        1128.1696812562477,
-        -1040
+        1130.3459726141489,
+        -1079.17324444222
       ],
       "size": [
         307.5416015625,
@@ -1046,15 +1046,15 @@
       "id": 217,
       "type": "UniForge3DSparsePostProcess",
       "pos": [
-        -749.6047976215842,
-        -561.5866164011549
+        -725.904984734041,
+        -535.2534909705514
       ],
       "size": [
         307.5416015625,
         178
       ],
       "flags": {},
-      "order": 20,
+      "order": 21,
       "mode": 0,
       "inputs": [
         {
@@ -1068,58 +1068,8 @@
           "name": "coords",
           "type": "TENSOR",
           "links": [
-            587
+            679
           ]
-        }
-      ],
-      "properties": {
-        "aux_id": "xibushu/UniForge3D",
-        "ver": "877ffb2d5c1a79d935fdcb419c4a138f1613e389",
-        "Node name for S&R": "UniForge3DSparsePostProcess"
-      },
-      "widgets_values": [
-        true,
-        "remove_small_holes",
-        1,
-        1,
-        true,
-        true
-      ],
-      "widgets_values_named": {
-        "fill_holes": true,
-        "hole_fill_algorithm": "remove_small_holes",
-        "hole_structure": 1,
-        "hole_iterations": 1,
-        "keep_only_shell": true,
-        "verbose": true
-      }
-    },
-    {
-      "id": 218,
-      "type": "UniForge3DSparsePostProcess",
-      "pos": [
-        142.73083393726293,
-        -344.93696113498174
-      ],
-      "size": [
-        307.5416015625,
-        178
-      ],
-      "flags": {},
-      "order": 24,
-      "mode": 4,
-      "inputs": [
-        {
-          "name": "coords",
-          "type": "TENSOR",
-          "link": 590
-        }
-      ],
-      "outputs": [
-        {
-          "name": "coords",
-          "type": "TENSOR",
-          "links": []
         }
       ],
       "properties": {
@@ -1197,8 +1147,8 @@
       "id": 223,
       "type": "Trellis2MeshToTrimesh",
       "pos": [
-        765.6589008574366,
-        -1574.9763672248991
+        717.7804909836124,
+        -1579.3289499407015
       ],
       "size": [
         285.1744140625,
@@ -1239,8 +1189,8 @@
       "id": 224,
       "type": "CuMeshSimplify",
       "pos": [
-        775.6589008574366,
-        -1394.9763672248991
+        725.6041996257112,
+        -1397.1526585828
       ],
       "size": [
         270,
@@ -1281,8 +1231,8 @@
       "id": 225,
       "type": "Trellis2TrimeshToMesh",
       "pos": [
-        765.6589008574366,
-        -1234.9763672248991
+        715.6041996257112,
+        -1217.5660363616903
       ],
       "size": [
         225.1744140625,
@@ -1317,8 +1267,8 @@
       "id": 250,
       "type": "CuMeshExportMesh",
       "pos": [
-        1846.233180793739,
-        268.7917491974513
+        1751.6417811420283,
+        285.9901854977623
       ],
       "size": [
         270,
@@ -1361,8 +1311,8 @@
       "id": 251,
       "type": "Uniforge3DGenerateTexture",
       "pos": [
-        1486.233180793739,
-        248.79174919745128
+        1375.6718045774537,
+        262.3048062905528
       ],
       "size": [
         252.544921875,
@@ -1426,93 +1376,6 @@
       }
     },
     {
-      "id": 257,
-      "type": "UniForge3DShape512Mesh",
-      "pos": [
-        -319.6047976215844,
-        -500.14848967663715
-      ],
-      "size": [
-        354.564453125,
-        354
-      ],
-      "flags": {},
-      "order": 22,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "UNIFORGE3D_MODEL",
-          "link": 589
-        },
-        {
-          "name": "batch",
-          "type": "UNIFORGE3D_BATCH",
-          "link": 588
-        },
-        {
-          "name": "sparse_structure_32",
-          "type": "TENSOR",
-          "link": 587
-        },
-        {
-          "name": "sparse_structure_64",
-          "type": "TENSOR",
-          "link": 586
-        },
-        {
-          "name": "dino_features_512",
-          "type": "DINO_FEATURES_512",
-          "link": 583
-        }
-      ],
-      "outputs": [
-        {
-          "name": "mesh512",
-          "type": "MESH",
-          "links": [
-            674
-          ]
-        },
-        {
-          "name": "coords",
-          "type": "TENSOR",
-          "links": [
-            590
-          ]
-        }
-      ],
-      "properties": {
-        "aux_id": "xibushu/UniForge3D",
-        "ver": "877ffb2d5c1a79d935fdcb419c4a138f1613e389",
-        "Node name for S&R": "UniForge3DShape512Mesh"
-      },
-      "widgets_values": [
-        64,
-        1024,
-        25,
-        7.5,
-        0,
-        5,
-        0.00001,
-        0.6,
-        1,
-        "euler"
-      ],
-      "widgets_values_named": {
-        "sparse_structure_resolution": 64,
-        "decode_resolution": 1024,
-        "shape512_steps": 25,
-        "shape512_guidance_strength": 7.5,
-        "shape512_guidance_rescale": 0,
-        "shape512_rescale_t": 5,
-        "shape512_sigma_min": 0.00001,
-        "shape512_guidance_interval_start": 0.6,
-        "shape512_guidance_interval_end": 1,
-        "sampler_method": "euler"
-      }
-    },
-    {
       "id": 263,
       "type": "LoadImage",
       "pos": [
@@ -1559,8 +1422,8 @@
       "id": 267,
       "type": "UniForge3DShape1024",
       "pos": [
-        641.0665182570411,
-        -456.1612785322452
+        664.7663311445842,
+        -429.828153101642
       ],
       "size": [
         444.046875,
@@ -1626,7 +1489,7 @@
         0.00001,
         0.15,
         1,
-        "rk4"
+        "euler"
       ],
       "widgets_values_named": {
         "shape1024_steps": 30,
@@ -1636,7 +1499,7 @@
         "shape1024_sigma_min": 0.00001,
         "shape1024_guidance_interval_start": 0.15,
         "shape1024_guidance_interval_end": 1,
-        "sampler_method": "rk4"
+        "sampler_method": "euler"
       }
     },
     {
@@ -1694,7 +1557,7 @@
         54.000004806056495
       ],
       "flags": {},
-      "order": 7,
+      "order": 8,
       "mode": 4,
       "inputs": [
         {
@@ -1735,7 +1598,7 @@
         286
       ],
       "flags": {},
-      "order": 10,
+      "order": 11,
       "mode": 4,
       "inputs": [
         {
@@ -1812,7 +1675,7 @@
         244
       ],
       "flags": {},
-      "order": 11,
+      "order": 12,
       "mode": 0,
       "inputs": [
         {
@@ -1871,15 +1734,15 @@
       "id": 285,
       "type": "PreviewImage",
       "pos": [
-        -3313.985021834318,
-        -3377.2252703351874
+        -2050.2765165506994,
+        -2991.773368440709
       ],
       "size": [
         1735.1516674233294,
         1858.4948876914054
       ],
       "flags": {},
-      "order": 14,
+      "order": 15,
       "mode": 0,
       "inputs": [
         {
@@ -1915,7 +1778,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 12,
+      "order": 13,
       "mode": 4,
       "inputs": [
         {
@@ -1983,7 +1846,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 13,
+      "order": 14,
       "mode": 4,
       "inputs": [
         {
@@ -2041,8 +1904,8 @@
       "id": 290,
       "type": "FillHoles",
       "pos": [
-        1440,
-        -330
+        1689.2842828141265,
+        -559.4998159241163
       ],
       "size": [
         270,
@@ -2089,21 +1952,21 @@
       "id": 291,
       "type": "FillHoles",
       "pos": [
-        180.87105328169514,
-        -1046.996919925633
+        -41.11066522421743,
+        -1573.6594285377
       ],
       "size": [
         270,
         130
       ],
       "flags": {},
-      "order": 23,
+      "order": 24,
       "mode": 0,
       "inputs": [
         {
           "name": "mesh",
           "type": "MESH",
-          "link": 674
+          "link": 682
         }
       ],
       "outputs": [
@@ -2137,12 +2000,12 @@
       "id": 292,
       "type": "SaveGLB",
       "pos": [
-        1711.9028140079506,
-        -2069.628486381666
+        -125.67451384280275,
+        -3109.191428437109
       ],
       "size": [
-        1005.6621244846035,
-        1010.8296406160039
+        1332.1867722876646,
+        1361.0586015965985
       ],
       "flags": {},
       "order": 31,
@@ -2158,33 +2021,32 @@
       "properties": {
         "cnr_id": "comfy-core",
         "ver": "0.41.0",
-        "Last Time Model File": "3d/ComfyUI_00172_.glb",
+        "Last Time Model File": "3d/ComfyUI_00175_.glb",
         "Last Time Model Folder": "output",
         "Camera Config": {
           "cameraType": "perspective",
           "fov": 35,
-          "hasCustomUp": false,
           "state": {
             "position": {
-              "x": -0.3886065363720098,
-              "y": 0.24062232845738896,
-              "z": 0.8940200506938318
+              "x": -0.13038569359925672,
+              "y": 0.16349597356815188,
+              "z": 1.0033229815475277
             },
             "target": {
-              "x": -0.25194279849529266,
-              "y": -0.2523373663425445,
-              "z": 0.24967676401138303
+              "x": -0.25333206355571747,
+              "y": -0.25182701647281647,
+              "z": 0.25011417269706726
             },
             "zoom": 1,
             "cameraType": "perspective",
             "quaternion": {
-              "x": -0.3140219105756157,
-              "y": -0.09897407804614869,
-              "z": -0.032935336512313715,
-              "w": 0.9436681806451754
+              "x": -0.24581308455966802,
+              "y": 0.07831722466994408,
+              "z": 0.01993016805196303,
+              "w": 0.9659426112252629
             },
             "fov": 35,
-            "aspect": 1.14585764294049,
+            "aspect": 1.083678541839271,
             "near": 0.01,
             "far": 10000,
             "frustum": {
@@ -2196,7 +2058,7 @@
           }
         },
         "Light Config": {
-          "intensity": 3,
+          "intensity": 2.4000000000000004,
           "hdri": {
             "enabled": false,
             "hdriPath": "",
@@ -2262,6 +2124,112 @@
       "widgets_values_named": {
         "filename_prefix": "3d/ComfyUI",
         "image": ""
+      }
+    },
+    {
+      "id": 294,
+      "type": "Note",
+      "pos": [
+        1392.29556414828,
+        132.99197330565806
+      ],
+      "size": [
+        210,
+        88
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "Not working at this time."
+      ],
+      "widgets_values_named": {
+        "text": "Not working at this time."
+      },
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 295,
+      "type": "UniForge3DShape512Mesh",
+      "pos": [
+        -122.08351603521623,
+        -500.6337570587399
+      ],
+      "size": [
+        354.564453125,
+        354
+      ],
+      "flags": {},
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "UNIFORGE3D_MODEL",
+          "link": 677
+        },
+        {
+          "name": "batch",
+          "type": "UNIFORGE3D_BATCH",
+          "link": 678
+        },
+        {
+          "name": "sparse_structure_32",
+          "type": "TENSOR",
+          "link": 679
+        },
+        {
+          "name": "sparse_structure_64",
+          "type": "TENSOR",
+          "link": 680
+        },
+        {
+          "name": "dino_features_512",
+          "type": "DINO_FEATURES_512",
+          "link": 681
+        }
+      ],
+      "outputs": [
+        {
+          "name": "mesh512",
+          "type": "MESH",
+          "links": [
+            682
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "xibushu/UniForge3D",
+        "ver": "877ffb2d5c1a79d935fdcb419c4a138f1613e389",
+        "Node name for S&R": "UniForge3DShape512Mesh"
+      },
+      "widgets_values": [
+        64,
+        1024,
+        25,
+        7.5,
+        0,
+        5,
+        0.00001,
+        0.6,
+        1,
+        "euler"
+      ],
+      "widgets_values_named": {
+        "sparse_structure_resolution": 64,
+        "decode_resolution": 1024,
+        "shape512_steps": 25,
+        "shape512_guidance_strength": 7.5,
+        "shape512_guidance_rescale": 0,
+        "shape512_rescale_t": 5,
+        "shape512_sigma_min": 0.00001,
+        "shape512_guidance_interval_start": 0.6,
+        "shape512_guidance_interval_end": 1,
+        "sampler_method": "euler"
       }
     }
   ],
@@ -2449,54 +2417,6 @@
       251,
       4,
       "DINO_FEATURES_1024"
-    ],
-    [
-      583,
-      97,
-      0,
-      257,
-      4,
-      "DINO_FEATURES_512"
-    ],
-    [
-      586,
-      215,
-      0,
-      257,
-      3,
-      "TENSOR"
-    ],
-    [
-      587,
-      217,
-      0,
-      257,
-      2,
-      "TENSOR"
-    ],
-    [
-      588,
-      89,
-      0,
-      257,
-      1,
-      "UNIFORGE3D_BATCH"
-    ],
-    [
-      589,
-      90,
-      0,
-      257,
-      0,
-      "UNIFORGE3D_MODEL"
-    ],
-    [
-      590,
-      257,
-      1,
-      218,
-      0,
-      "TENSOR"
     ],
     [
       601,
@@ -2691,14 +2611,6 @@
       "MESH"
     ],
     [
-      674,
-      257,
-      0,
-      291,
-      0,
-      "MESH"
-    ],
-    [
       675,
       291,
       0,
@@ -2745,6 +2657,54 @@
       220,
       0,
       "MESH"
+    ],
+    [
+      677,
+      90,
+      0,
+      295,
+      0,
+      "UNIFORGE3D_MODEL"
+    ],
+    [
+      678,
+      89,
+      0,
+      295,
+      1,
+      "UNIFORGE3D_BATCH"
+    ],
+    [
+      679,
+      217,
+      0,
+      295,
+      2,
+      "TENSOR"
+    ],
+    [
+      680,
+      215,
+      0,
+      295,
+      3,
+      "TENSOR"
+    ],
+    [
+      681,
+      97,
+      0,
+      295,
+      4,
+      "DINO_FEATURES_512"
+    ],
+    [
+      682,
+      295,
+      0,
+      291,
+      0,
+      "MESH"
     ]
   ],
   "groups": [
@@ -2752,8 +2712,8 @@
       "id": 1,
       "title": "Uniforge",
       "bounding": [
-        -1318.2588098703466,
-        -665.2127202058457,
+        -1294.5589969828038,
+        -638.8795947752423,
         2422.7271861302634,
         678.6251464207329
       ],
@@ -2812,10 +2772,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.28531167061104973,
+      "scale": 0.3452271214393729,
       "offset": [
-        4007.828560218277,
-        2645.8559543443907
+        3048.4468996439323,
+        2050.0806844531376
       ]
     },
     "frontendVersion": "1.55.18",
