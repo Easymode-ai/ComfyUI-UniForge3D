@@ -193,6 +193,7 @@ class UniForge3DSparseStructure:
                 "structure_rescale_t": ("FLOAT", {"default": 5.0, "min": 0.0, "max": 10.0, "step": 0.01}),
                 "structure_sigma_min": ("FLOAT", {"default": 1e-05, "min": 1e-6, "max": 0.1, "step": 1e-6}),
                 "sampler_method": (["euler", "rk4"], {"default": DEFAULT_SAMPLER_METHOD}),
+                "enable_back_fusion": ("BOOLEAN", {"default": False}),
 
             }
         }
@@ -207,7 +208,8 @@ class UniForge3DSparseStructure:
         self, model, batch, dino_features_512, denoise_sparse,
         denoise_iterations, structure_steps, structure_guidance_strength,
         structure_guidance_interval_start, structure_guidance_interval_end,
-        structure_guidance_rescale, structure_rescale_t, structure_sigma_min, sampler_method, 
+        structure_guidance_rescale, structure_rescale_t, structure_sigma_min, sampler_method,
+        enable_back_fusion=False,
     ):
         torch.cuda.set_device(model.device)
         verbose = True
@@ -222,7 +224,7 @@ class UniForge3DSparseStructure:
         model.config["sparse_structure"]["sampler"]["args"]["sigma_min"] = float(structure_sigma_min)
       
         print("[UniForge3D] Stage 2/5: Generating sparse structure...")
-        sparse_structure = model._generate_structure(batch, dino_features_512, sampler_method=sampler_method)
+        sparse_structure = model._generate_structure(batch, dino_features_512, sampler_method=sampler_method, enable_back_fusion=enable_back_fusion)
         release_cache = getattr(globals(), "release_cuda", None)
         if release_cache:
             release_cache()
@@ -473,8 +475,8 @@ class UniForge3DShape512Mesh:
             }
         }
 
-    RETURN_TYPES = ("MESH","TENSOR")
-    RETURN_NAMES = ("mesh512","coords")
+    RETURN_TYPES = ("MESH",)
+    RETURN_NAMES = ("mesh512",)
     FUNCTION = "generate_shape512"
     CATEGORY = "3D/UniForge3D/Stages"
 
@@ -538,13 +540,7 @@ class UniForge3DShape512Mesh:
             "face_counts": mesh512.face_counts if hasattr(mesh512, "face_counts") else None
         })
 
-
-        coords = model._shape512_to_coords64(
-                mesh512,
-                sparse_structure_resolution
-            )
-
-        return (mesh_dict, coords)
+        return (mesh_dict)
     
 class UniForge3DCoordinateUpsample:
     """Stage 4a: Takes in a MESH dictionary, voxelizes coordinates, and performs VRAM-safe upsampling."""
